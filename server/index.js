@@ -5,7 +5,7 @@ const app = express();
 
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js');
-config.dev = !(process.env.NODE_ENV === 'production');
+const isProd = (process.env.NODE_ENV === 'production')
 
 async function start() {
   // Init Nuxt.js
@@ -14,7 +14,7 @@ async function start() {
   const { host, port } = nuxt.options.server;
 
   // Build only in dev mode
-  if (config.dev) {
+  if (!isProd) {
     const builder = new Builder(nuxt);
     await builder.build()
   } else {
@@ -29,7 +29,27 @@ async function start() {
   consola.ready({
     message: `Server listening on http://${host}:${port}`,
     badge: true
-  })
+  });
+
+  app.get('/api', function (req, res) {
+    res.send('CV TECH UPEM')
+  });
+
+  app.get('/offers', function (req, res) {
+    res.send('Offers')
+  });
+
+  app.get('/profiles', function (req, res) {
+    res.send('Profiles!')
+  });
+
+  app.get('/offers/:id', function (req, res) {
+    res.send(req.params)
+  });
+
+  app.get('/profiles/:id', function (req, res) {
+    res.send(req/params)
+  });
 }
 
 start();

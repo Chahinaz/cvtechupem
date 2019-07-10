@@ -2,12 +2,13 @@
   <div>
     <div class="result">
       <!-- Search bar -->
-      <div class="ui search">
+      <div class="ui category search">
         <div class="ui icon input">
-          <input class="prompt" type="text" style="padding: 1rem 3rem 1rem 2rem !important;"
-                 placeholder="                     Mot clé ">
-          <i class="search teal icon"></i>
+          <input class="prompt" type="text" v-model="ID" placeholder="Trouver une offre par ID ">
         </div>
+        <button class="circular ui icon button" @click="onClickPost">
+          <i class="icon search"></i>
+        </button>
       </div>
 
 
@@ -48,45 +49,11 @@
           <div style="margin-left: 1rem">
             <h3 class="ui teal center header">Résultats</h3>
               <!-- For offer in offers, create card-->
-              <div class="ui link cards">
-                <!-- desc -->
-                <div class="ui card">
-                  <div class="content">
-                    <div class="center aligned header">Informatique</div>
-                    <div class="center aligned description">
-                      <p>Ingénieur Java</p>
-                      <p><i class="file code outline icon"></i>: Java, CSS, HTML, JS, Hibernaten, PostgreSQL</p>
-                    </div>
-                  </div>
-                  <div class="extra content">
-                    <div class="center aligned blue author">
-                      <div class="ui blue horizontal label">En savoir plus</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- desc -->
-                <div class="ui card">
-                  <div class="content">
-                    <div class="center aligned header">Administration</div>
-                    <div class="center aligned description">
-                      <p>Secrétaire pédagogique</p>
-                      <p><i class="file code outline icon"></i>: EPSCP, Excel, Organisation, Pédagogue</p>
-                    </div>
-                  </div>
-                  <div class="extra content">
-                    <div class="center aligned blue author">
-                      <div class="ui blue horizontal label">En savoir plus</div>
-                    </div>
-                  </div>
-                </div>
-
               </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -94,6 +61,7 @@
     name: 'searchOffers',
     data() {
       return {
+        ID: '',
         currentSector: null,
         currentContract: null,
         currentHandicap: null,
@@ -180,6 +148,11 @@
           { key: 'ux', text: 'User Experience', value: 'ux' }],
       };
     },
+    methods: {
+      onClickPost(){
+        this.$router.push('/offers/'+this.ID);
+      }
+    }
   };
 </script>
 
