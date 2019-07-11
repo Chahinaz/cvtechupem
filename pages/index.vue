@@ -4,7 +4,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
 .container {
   justify-content: center;
   align-items: center;

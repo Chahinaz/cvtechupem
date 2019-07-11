@@ -1,6 +1,11 @@
 <template lang="html">
   <div>
     <div class="result">
+      <div class="add">
+        <div class="ui toggle teal button" @click="$router.push('/offers/newOffer')"> Ajouter une offre&nbsp;&nbsp;
+          <i class="plus icon"></i>
+        </div>
+      </div>
       <!-- Search bar -->
       <div class="ui category search">
         <div class="ui icon input">
@@ -33,7 +38,7 @@
 
             <!-- dropdown language  -->
             <div class="space">
-              <sui-dropdown placeholder="Langues" selection :options="languageOptions" v-model="currentLanguage"/>
+              <sui-dropdown fluid multiple placeholder="Langues" selection :options="languageOptions" v-model="currentLanguage"/>
             </div>
 
             <!-- dropdown handicap  -->
@@ -48,17 +53,35 @@
         <div class="eight wide divided column">
           <div style="margin-left: 1rem">
             <h3 class="ui teal center header">Résultats</h3>
-              <!-- For offer in offers, create card-->
+            <!-- For offer in offers, create card-->
+            <div class="ui link cards">
+              <div class="card">
+                <OfferPreview id="1" sector="Administration" post="Secrétaire Pédagogique"
+                             description="" studies-lvl="Bac+2 / Bac+3" contract="CDD"
+                             location="Champs-sur-Marne, Île-de-France, France." />
               </div>
+              <div class="ui card">
+                <OfferPreview id="2" sector="Informatique" post="Développeur Java"
+                             description="" studies-lvl="Bac+3 / Bac+5" contract="CDI"
+                             location="Champs-sur-Marne, Île-de-France, France." />
+              </div>
+            </div>
           </div>
+        </div>
+
         </div>
       </div>
     </div>
 </template>
 
 <script>
+  import OfferPreview from "../../components/OfferPreview";
+
   export default {
     name: 'searchOffers',
+    components:{
+      OfferPreview
+    },
     data() {
       return {
         ID: '',
@@ -115,20 +138,12 @@
           }
         ],
         languageOptions : [
-          {
-            text: 'Anglais',
-            value: 1,
-          }, {
-            text: 'Allemand',
-            value: 2,
-          }, {
-            text: 'Espagnol',
-            value: 3,
-          }, {
-            text: 'Russe',
-            value: 4,
-          }
-        ],
+          { key: 'FR', text: 'Français', value: 'fr' },
+          { key: 'EN', text: 'Anglais', value: 'en' },
+          { key: 'GR', text: 'Allemand', value: 'gr' },
+          { key: 'ES', text: 'Espagnol', value: 'es' },
+          { key: 'RU', text: 'Russe', value: 'ru' },
+          { key: 'IT', text: 'Italien', value: 'it' }],
         skillsSelection : [
           { key: 'angular', text: 'Angular', value: 'angular' },
           { key: 'css', text: 'CSS', value: 'css' },
@@ -156,7 +171,7 @@
   };
 </script>
 
-<style>
+<style scoped>
   sui-dropdown{
     margin-bottom: 10rem !important;
   }
@@ -170,9 +185,13 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin-bottom: 2rem;
   }
 
-  .space{
-    margin-bottom: 1rem;
+  .add{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    border-radius: 25% !important;
   }
 </style>

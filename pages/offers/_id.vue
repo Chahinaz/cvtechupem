@@ -68,13 +68,13 @@
 <script>
 export default{
   validate(data){
-    /** Accept num values only */
+    /** Accepts num values only */
     return /^\d+$/.test(data.params.id);
   }
 }
 </script>
 
-<style>
+<style scoped>
   .segment{
     margin: 5% !important;
   }
