@@ -32,13 +32,6 @@
         type: String,
         require: true
       },
-      description: String,
-      management: String,
-      missions: String,
-      knowledge: String,
-      howToBe: String,
-      expertise: String,
-      studiesLvl: String,
       contract: String,
       location: String,
     }

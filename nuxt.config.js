@@ -1,6 +1,10 @@
+const env = require('dotenv').config();
 
 module.exports = {
   mode: 'universal',
+
+  /** Nuxt will merge with other .env informations */
+  env: env.parsed,
   /*
   ** Headers of the page
   */

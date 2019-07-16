@@ -53,8 +53,9 @@
         <div class="eight wide divided column">
           <div style="margin-left: 1rem">
             <h3 class="ui teal center header">Résultats</h3>
-            <!-- For offer in offers, create card-->
             <div class="ui link cards">
+              <!-- For offer in offers, create card-->
+              <!-- <div v-for="offer in offers" :key="offer.id" :id=offer.id :title="offer.post"> -->
               <div class="card">
                 <OfferPreview id="1" sector="Administration" post="Secrétaire Pédagogique"
                              description="" studies-lvl="Bac+2 / Bac+3" contract="CDD"
@@ -65,6 +66,7 @@
                              description="" studies-lvl="Bac+3 / Bac+5" contract="CDI"
                              location="Champs-sur-Marne, Île-de-France, France." />
               </div>
+            <!-- </div> -->
             </div>
           </div>
         </div>
@@ -161,6 +163,24 @@
           { key: 'ruby', text: 'Ruby', value: 'ruby' },
           { key: 'ui', text: 'UI Design', value: 'ui' },
           { key: 'ux', text: 'User Experience', value: 'ux' }],
+        offers: [
+          {
+          id: "1",
+          sector: "Administration",
+          post: "Secrétaire Pédagogique",
+          description: "",
+          studiesLvl:"Bac+2 / Bac+3",
+          contract: "CDD",
+          location: "Champs-sur-Marne, Île-de-france, France."
+        }, {
+            id: "2",
+            sector: "Informatique",
+            post: "Développeur Java",
+            description: "",
+            studiesLvl:"Bac+5",
+            contract: "CDI",
+            location: "Champs-sur-Marne, Île-de-france, France."
+        }]
       };
     },
     methods: {

@@ -1,7 +1,7 @@
 <template>
   <section class="ui container">
     <h2 class="ui center aligned teal header">Créer une nouvelle offre</h2>
-    <div class="ui segment form">
+    <div class="ui segment form" @submit.prevent="OnSave">
       <div class="field">
         <div class="new section">
           <h2 class="ui teal header">Type de contrat</h2>
@@ -80,7 +80,8 @@
       </div>
 
       <div class="apply">
-        <div class="ui huge blue submit button" @click="$router.push('/offers/')"> Créer </div>
+        <div class="ui huge blue submit button"> Créer </div>
+        <div class="ui huge blue button" @click="$router.push('/offers/')"> Annuler </div>
       </div>
     </div>
   </section>
@@ -89,9 +90,6 @@
 <script>
   export default {
     name: 'newOffer',
-    props: {
-
-    },
     data() {
       return {
         ID: '',
@@ -200,6 +198,11 @@
           }],
       };
     },
+    methods: {
+      onSave(){
+        console.log("Saving");
+      }
+    }
   };
 </script>
 
