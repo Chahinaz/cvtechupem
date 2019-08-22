@@ -21,7 +21,7 @@
         </div>
 
         <div class="field">
-          <label>Nom</label>
+          <label>Mot de passe</label>
           <div class="two fields">
             <div class="field">
               <input type="password" name="password" placeholder="Mot de passe">

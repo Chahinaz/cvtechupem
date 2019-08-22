@@ -8,6 +8,7 @@
       </div>
       <div class="right menu">
         <nuxt-link class="header item" to="/offers">Offres</nuxt-link>
+        <nuxt-link class="header item" to="/profiles">Profiles</nuxt-link>
 
         <sui-dropdown class="blue icon" icon="user circle" button pointing="top right">
           <sui-dropdown-menu>
